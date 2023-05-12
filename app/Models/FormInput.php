@@ -15,7 +15,7 @@ class FormInput extends Model
         'address',
         'state',
         'city',
-        'country',
-        'postal_code',
+        'pekerjaan',
+        'no_ktp',
     ];
 }

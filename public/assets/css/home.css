@@ -1,0 +1,78 @@
+.jumbotron {
+  padding-top: 6rem;
+  background-color: #fdf6b6;
+}
+section {
+  padding-top: 5rem;
+}
+
+#projects {
+  background-color: #fdf6b6;
+}
+
+.navbar .container .navbar-brand {
+  border-color: #cdfaf833;
+  border-style: inset;
+  background-color: #ffc107;
+  border-radius: 20px;
+  border-width: 0.3rem;
+  padding: 0.5rem;
+  font-weight: 800;
+  font-style: italic;
+  font-size: auto;
+}
+
+.navbar .container .navbar-brand span {
+  color: #215040;
+}
+
+#contact .container {
+  margin-top: 1rem;
+  height: auto;
+  width: auto;
+  border-radius: 25px;
+  border-style: outset;
+}
+
+/* kontkak */
+.contact {
+  padding: 8rem 7% 1.4rem;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.contact p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+}
+.contact .row {
+  position: relative;
+  display: flex;
+  margin-top: 2rem;
+  background-color: #222;
+  border-radius: 25px;
+  border-style: double;
+  border-color: #ffffff;
+}
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.contact .row #tombol {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.contact .row #tombol .btn {
+  margin-top: 0.5rem;
+  border-radius: 40px;
+  cursor: pointer;
+}
+/* kontkak end */

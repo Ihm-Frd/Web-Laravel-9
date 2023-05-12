@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\CiantraController;
+
 
 
 /*
@@ -16,6 +19,22 @@ use App\Http\Controllers\FormController;
 |
 */
 
+// Halaman Utama 
+Route::controller(CiantraController::class)->group(function(){
+    Route::get('home','home')->name('home');
+    
+});
+
+Route::get('/auth/login',[AuthController::class, 'login'])->name('login');
+
+Route::controller(CiantraController::class)->group(function(){
+    Route::get('submitWA','submitWA')->name('submitWA');
+});
+
+
+
+
+Route::middleware('auth')->group(function(){   //Pengaman login dr akses ketik manual nama page
 /** set active side bar */
 function set_active($route) {
     if (is_array($route)) {
@@ -27,6 +46,7 @@ function set_active($route) {
 Route::get('/', function () {
     return view('dashboard.dashboard');
 })->name('/');
+
 
 // ----------------------------- main dashboard ------------------------------//
 Route::controller(HomeController::class)->group(function () {
@@ -47,11 +67,19 @@ Route::controller(FormController::class)->group(function () {
     Route::get('view/upload/file', 'formFileView')->name('view/upload/file'); // file view
     Route::get('download/file/{file_name}', 'fileDownload'); // file download
     Route::post('download/file/delete', 'fileDelete')->name('download/file/delete'); // file delete
-
-    Route::get('form/radio/index', 'radioIndex')->name('form/radio/index'); // radio index
-    Route::post('form/radio/save', 'radioSave')->name('form/radio/save'); // radio save
-
-    Route::get('form/checkbox/index', 'checkboxIndex')->name('form/checkbox/index'); // checkbox index
-    Route::post('form/checkbox/save', 'saveRecordCheckbox')->name('form/checkbox/save'); // checkbox save
-
 });
+
+
+}); //Pengaman login end...................
+
+
+Route::controller(AuthController::class)->group(function(){
+    Route::get('register','register')->name('register');
+    Route::post('register','registerSimpan')->name('register.simpan');
+
+    Route::get('login','login')->name('login');
+    Route::post('login','loginAksi')->name('login.aksi');
+
+    Route::get('logout','logout')->middleware('auth')->name('logout');
+});
+

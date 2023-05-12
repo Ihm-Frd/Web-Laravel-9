@@ -50,7 +50,8 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">File Upload</h3>
+                        
+                        <h3 class="page-title">Form Upload</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('/') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active">File Upload</li>
@@ -62,7 +63,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" style="text-align: center;">
-                            <h5 class="card-title mb-0">File Upload</h5>
+                            <h5 class="card-title mb-0">File Upload KTP</h5>
                         </div>
                         <br>
                         <form action="{{ route('form/upload/file') }}" id="file-upload-form" class="uploader" method="POST" enctype="multipart/form-data">
@@ -70,19 +71,57 @@
                             <div class="form-group">
                                 <div class="col-xl-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control @error('upload_by') is-invalid @enderror" name="upload_by" placeholder="Upload by" value="{{ old('upload_by') }}">
+                                        <input type="text" class="form-control @error('upload_by') is-invalid @enderror" name="upload_by" placeholder="Isi Nama Anda (Sesuai KTP)" value="{{ old('upload_by') }}">
                                     </div>
                                 </div> 
                                 <input type="file" name="file_name[]" id="file" class="input-file @error('file_name[]') is-invalid @enderror" multiple>
                                 <label for="file" class="btn btn-tertiary js-labelFile">
                                     <i class="icon fa fa-check"></i>
-                                    <span class="js-fileName">Choose a file</span>
+                                    <span class="js-fileName">Tambahkan Scan KTP</span>
                                 </label>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                                
                             </div>
+                            <a href="{{ url()->previous() }}"  class="btn btn-primary btn-sm mr-2"><i class="bi bi-arrow-left-circle"></i> Kembali</a>
+                            
                             <br>
+                            <a href="{{ route('submitWA') }}" class="btn btn-success-wa">
+                                <div class="col-sm" style="display: inline-block;">
+                                        <span class="avatar"><img src="{{ URL::to('assets/img/callcenter.jpg') }}" class="call" alt="Image Button"></span>
+                                        <span style="display: inline-block;"><i class="bi bi-whatsapp"></i> Hubungi kami </span>
+                                        
+                                    </div>
+                                    </a>
+                                <style>
+
+                                <style>
+                                    .avatar {
+                                        margin-right: 10px;
+                                        border-radius: 50%;
+                                     display: inline-block;
+                                    }
+
+                                    .text-left  {
+                                    display: inline-block;
+                                }
+
+                                .btn-success-wa
+                                 {
+                                    display: inline-block;
+                                    position: absolute;
+                                    margin-inline-end: 2rem;
+                                    margin-right: 1rem;
+                                    margin-top: 0.9rem;
+                                    right: 0;
+                                    background-color: rgba(47, 202, 0, 0.966);
+                                    border-radius: 30px;
+                                    
+                                }
+                                 
+
+                                </style>
                         </form>
                     </div>
                 </div>
